@@ -49,16 +49,16 @@ python run.py
 
 ---
 
-API Endpoints
+## API Endpoints
 
-Projects:
+### Projects:
 - POST /projects/ - Create project
 - GET /projects/ - Get all projects
 - GET /projects/{id} - Get project by ID
 - PUT /projects/{id} - Update project
 - DELETE /projects/{id} - Delete project
 
-Places:
+### Places:
 - POST /places/{project_id} - Add place to project
 - GET /places/{project_id} - Get all places
 - GET /places/{project_id}/{place_id} - Get single place
@@ -66,7 +66,7 @@ Places:
 
 ---
 
-External API
+## External API
 
 This project uses:
 
@@ -78,7 +78,7 @@ Used to:
 - fetch place titles
 
 
-Business Rules
+## Business Rules
 - Maximum 10 places per project
 - Cannot add duplicate place (same external_id)
 - Place must exist in external API
@@ -87,7 +87,7 @@ Business Rules
 
 ---
 
-Postman Collection
+## Postman Collection
 
 You can test all endpoints using Postman.
 

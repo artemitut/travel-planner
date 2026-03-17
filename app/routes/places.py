@@ -6,7 +6,7 @@ import requests
 places_bp = Blueprint('places', __name__)
 
 
-# 🔹 helper: API verification
+# helper: API verification
 def validate_place(external_id):
     url = f"https://api.artic.edu/api/v1/artworks/{external_id}"
     response = requests.get(url)
@@ -18,7 +18,7 @@ def validate_place(external_id):
     return data.get("data")
 
 
-# 🔹 CREATE PLACE
+# CREATE PLACE
 @places_bp.route('/<int:project_id>', methods=['POST'])
 def add_place(project_id):
     project = Project.query.get(project_id)

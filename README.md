@@ -27,69 +27,75 @@ RESTful API for managing travel projects and places to visit.
 
 ## Installation
 
-### 1. Clone repository
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/artemitut/travel-planner
 cd travel-planner
+```
 
-### 2. Create virtual environment
+### 2. Create a virtual environment
 
+```bash
 python -m venv venv
 source venv/bin/activate   # Mac/Linux
 venv\Scripts\activate      # Windows
+```
 
 ### 3. Install dependencies
 
+```bash
 pip install -r requirements.txt
+```
 
 ### 4. Run the application
 
+```bash
 python run.py
+```
 
 ---
 
 ## API Endpoints
 
-### Projects:
-- POST /projects/ - Create project
-- GET /projects/ - Get all projects
-- GET /projects/{id} - Get project by ID
-- PUT /projects/{id} - Update project
-- DELETE /projects/{id} - Delete project
+### Projects
 
-### Places:
-- POST /places/{project_id} - Add place to project
-- GET /places/{project_id} - Get all places
-- GET /places/{project_id}/{place_id} - Get single place
-- PUT /places/{project_id}/{place_id} - Update place
+- `POST /projects/` - Create a project
+- `GET /projects/` - Get all projects
+- `GET /projects/{id}` - Get project by ID
+- `PUT /projects/{id}` - Update project
+- `DELETE /projects/{id}` - Delete project
+
+### Places
+
+- `POST /places/{project_id}` - Add a place to a project
+- `GET /places/{project_id}` - Get all places in a project
+- `GET /places/{project_id}/{place_id}` - Get a single place
+- `PUT /places/{project_id}/{place_id}` - Update a place
 
 ---
 
 ## External API
 
-This project uses:
+This project uses the [Art Institute of Chicago API](https://api.artic.edu/docs/) to:
 
-Art Institute of Chicago API
-https://api.artic.edu/docs/
+- Validate places
+- Fetch place titles
 
-Used to:
-- validate places
-- fetch place titles
-
+---
 
 ## Business Rules
+
 - Maximum 10 places per project
-- Cannot add duplicate place (same external_id)
-- Place must exist in external API
-- Cannot delete project if any place is visited
+- Cannot add duplicate places (same `external_id`)
+- Place must exist in the external API
+- Cannot delete a project if any place is marked as visited
 - Project is marked as completed when all places are visited
 
 ---
 
 ## Postman Collection
 
-You can test all endpoints using Postman.
+You can test all endpoints using Postman.  
 
-Import file from repository:
-postman_collection.json
+Import the collection from the repository: `postman_collection.json`

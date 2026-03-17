@@ -7,14 +7,11 @@ db = SQLAlchemy()
 def create_app():
     app = Flask(__name__)
 
-    # конфіг
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///travel.db'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-    # ініціалізація БД
     db.init_app(app)
 
-    # реєстрація роутів
     from .routes.projects import projects_bp
     from .routes.places import places_bp
 

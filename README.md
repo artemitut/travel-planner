@@ -1,0 +1,95 @@
+# Travel Planner API
+
+RESTful API for managing travel projects and places to visit.
+
+---
+
+## Features
+
+- Create and manage travel projects
+- Add places to projects (from external API)
+- Attach notes to places
+- Mark places as visited
+- Automatically complete project when all places are visited
+- Validate places using Art Institute of Chicago API
+
+---
+
+## Tech Stack
+
+- Python 3
+- Flask
+- SQLAlchemy
+- SQLite
+- Requests
+
+---
+
+## Installation
+
+### 1. Clone repository
+
+```bash
+git clone https://github.com/artemitut/travel-planner
+cd travel-planner
+
+### 2. Create virtual environment
+
+python -m venv venv
+source venv/bin/activate   # Mac/Linux
+venv\Scripts\activate      # Windows
+
+### 3. Install dependencies
+
+pip install -r requirements.txt
+
+### 4. Run the application
+
+python run.py
+
+---
+
+## API Endpoints
+
+### Projects:
+- POST /projects/ - Create project
+- GET /projects/ - Get all projects
+- GET /projects/{id} - Get project by ID
+- PUT /projects/{id} - Update project
+- DELETE /projects/{id} - Delete project
+
+### Places:
+- POST /places/{project_id} - Add place to project
+- GET /places/{project_id} - Get all places
+- GET /places/{project_id}/{place_id} - Get single place
+- PUT /places/{project_id}/{place_id} - Update place
+
+---
+
+## External API
+
+This project uses:
+
+Art Institute of Chicago API
+https://api.artic.edu/docs/
+
+Used to:
+- validate places
+- fetch place titles
+
+
+## Business Rules
+- Maximum 10 places per project
+- Cannot add duplicate place (same external_id)
+- Place must exist in external API
+- Cannot delete project if any place is visited
+- Project is marked as completed when all places are visited
+
+---
+
+## Postman Collection
+
+You can test all endpoints using Postman.
+
+Import file from repository:
+postman_collection.json
